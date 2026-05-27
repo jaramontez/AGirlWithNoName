@@ -11,16 +11,22 @@ Doodle Street is a nonprofit in its first year of operation, founded by Jara Mon
 Mission: Send art supplies to classrooms where budgets don't cover the basics.
 Website: https://doodlestreet.org/
 Focus area: Art education for kids, especially in under-resourced schools.
-Stage: ~6 months in, founder is also working a 9-5, so capacity is limited.
-Goals for the second half of the year: grow impact, build key relationships,
-find grants, connect with aligned organizations and donors.
+Stage: ~6 months in, founder also works a 9-5, so time is extremely limited.
+
+PRIORITIES for the second half of year one:
+1. FUNDING — finding grants, donors, and sustainable revenue. This is the #1 need.
+2. SCALE — how to grow reach and impact without burning out as a solo founder.
+3. ORG-BUILDING — systems, structure, and credibility that attract money and partners.
+
+DO NOT focus on: teacher outreach, classroom connections, or supply logistics.
+Those happen naturally. The founder needs help with the business side of the nonprofit.
 """
 
 DIGEST_TYPES = [
-    "how_to_resource",
-    "similar_orgs",
+    "how_to_scale",
+    "grant_or_funder",
     "org_suggestion",
-    "person_to_reach_out",
+    "donor_to_reach",
 ]
 
 
@@ -59,31 +65,45 @@ every word should count. Format your response as JSON with these exact keys:
     scraped_summary = json.dumps(scraped_data, indent=2, default=str)[:8000]
 
     type_instructions = {
-        "how_to_resource": (
-            "Pick the SINGLE most useful how-to article, blog post, or resource "
-            "from the scraped data for a first-year nonprofit founder running an art-supply "
-            "program for kids. Summarize the key takeaways in 3-5 bullets. Include the URL. "
-            "If nothing scraped is great, recommend a specific real resource you know of."
+        "how_to_scale": (
+            "Find or recommend ONE specific, actionable resource — article, guide, book chapter, "
+            "podcast episode, or framework — on ONE of these topics for a first-year nonprofit founder: "
+            "fundraising strategy, building a donor base from scratch, nonprofit revenue diversification, "
+            "scaling a small nonprofit, grant writing for beginners, or board development. "
+            "NOT about programs or teaching — purely about money and organizational growth. "
+            "Summarize the 3-5 most actionable takeaways. Include the URL if it's a real link. "
+            "Be specific enough that the founder can act on it in under 30 minutes."
         ),
-        "similar_orgs": (
-            "Identify 3-5 nonprofits in the art education / arts-supplies-for-kids space "
-            "from the scraped orgs data. For each: name, what they do, why Doodle Street "
-            "should know them, and a URL. If scraped data is thin, use your knowledge to "
-            "suggest real orgs in this space."
+        "grant_or_funder": (
+            "Identify ONE specific grant opportunity OR one specific foundation/funder "
+            "that is a strong match for Doodle Street right now. Use the scraped grants data "
+            "if relevant, otherwise use your knowledge of real foundations that fund: "
+            "arts education, school supply programs, youth arts, equity in education, or "
+            "community-based nonprofits in their early years. "
+            "Include: funder name, what they fund, typical grant size, deadline if known, "
+            "why it's a fit for Doodle Street, and exactly where to apply or learn more. "
+            "Real foundations to draw from: NEA, Walmart Foundation, Michael & Susan Dell Foundation, "
+            "PNC Grow Up Great, Crayola Champion Creatively, Dollar General Literacy Foundation, "
+            "local community foundations, arts council grants, corporate giving programs."
         ),
         "org_suggestion": (
-            "Give ONE concrete, specific action Doodle Street should take in the next 7 days "
-            "to grow as an organization — something realistic for a founder with limited time. "
-            "Could be a partnership to pursue, a program tweak, a social media move, "
-            "a grant to apply for, or an operational improvement. Be very specific."
+            "Give ONE concrete action Doodle Street should take THIS WEEK to get closer to funding "
+            "or scale — something a solo founder with a day job can realistically do in 1-2 hours. "
+            "Focus on: donor cultivation, fundraising infrastructure, grant pipeline, "
+            "online presence that attracts donors, earned revenue ideas, or building credibility "
+            "with funders (impact data, testimonials, annual report, etc.). "
+            "Be extremely specific — name the exact tool, platform, template, or person type. "
+            "Include the WHY (how this directly leads to money or scale) and the HOW (step by step)."
         ),
-        "person_to_reach_out": (
-            "Suggest ONE specific type of person (or a real example if you know one) "
-            "for Doodle Street's founder to connect with this week — could be a grant writer, "
-            "a donor profile type, a peer founder, a school administrator, a community leader, "
-            "or an arts advocate. Explain exactly who, why, and how to approach them "
-            "(what to say in the first message). Include a LinkedIn search tip or a real org "
-            "where this type of person can be found."
+        "donor_to_reach": (
+            "Suggest ONE specific type of donor or funder for Doodle Street's founder to "
+            "identify and reach out to this week. Focus on: individual major donors who give to arts "
+            "or education, corporate sponsors (art supply companies, office supply retailers, "
+            "local businesses), foundation program officers, or impact investors in education equity. "
+            "NOT teachers, NOT school administrators — people who write checks or make grants. "
+            "Include: who they are, why they'd care about Doodle Street's mission, "
+            "exactly how to find them (LinkedIn search string, database, event, etc.), "
+            "and a specific 3-sentence cold outreach message the founder can copy and personalize."
         ),
     }
 
