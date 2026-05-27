@@ -10,6 +10,7 @@ import json
 import sys
 
 from .scrapers import (
+    art_grants_scraper,
     blue_avocado_scraper,
     candid_scraper,
     grants_scraper,
@@ -36,11 +37,15 @@ def gather_data() -> dict:
     print("[main] fetching grants...")
     grants = grants_scraper.get_grants()
 
+    print("[main] scraping art supply / corporate grant programs...")
+    art_grants = art_grants_scraper.get_grant_programs()
+
     return {
         "articles": articles,
         "orgs": orgs,
         "listings": listings,
         "grants": grants,
+        "art_grants": art_grants,
     }
 
 
@@ -54,7 +59,7 @@ def main():
     date = datetime.date.fromisoformat(args.date) if args.date else datetime.date.today()
 
     if args.skip_scrape:
-        scraped = {"articles": [], "orgs": [], "listings": [], "grants": []}
+        scraped = {"articles": [], "orgs": [], "listings": [], "grants": [], "art_grants": []}
     else:
         scraped = gather_data()
 
