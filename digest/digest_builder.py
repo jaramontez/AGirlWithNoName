@@ -55,7 +55,14 @@ Today is {date.strftime('%A, %B %d, %Y')}.
 
 Your job is to produce ONE highly curated, actionable digest item for the founder.
 Be warm, direct, and specific. No fluff. The founder is time-constrained so
-every word should count. Format your response as JSON with these exact keys:
+every word should count.
+
+CRITICAL URL RULE: Only include a URL if it appears in the scraped data provided below
+and has url_verified = True. Never invent, guess, or recall a URL from memory —
+your training data is out of date and dead links destroy trust. If no verified URL
+exists for something, tell the founder to search for it by name instead.
+
+Format your response as JSON with these exact keys:
 - subject: email subject line (engaging, specific, under 60 chars)
 - headline: the main headline for this digest section (under 80 chars)
 - body_markdown: the full digest content in Markdown (use headers, bullets, links)
